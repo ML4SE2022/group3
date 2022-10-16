@@ -15,7 +15,7 @@ class LangInfo:
 class RosettacodeSpider(scrapy.Spider):
     name = "rosettacode"
 
-    def __init__(self, langs: str = 'Java, Python', exts: str = 'java,py', res_dir: str = '../data', *args, **kwargs):
+    def __init__(self, langs: str = 'Java,Python', exts: str = 'java,py', res_dir: str = '../data', *args, **kwargs):
         super(RosettacodeSpider, self).__init__(*args, **kwargs)
 
         comma_regex: str = r'\s*,\s*'
@@ -24,7 +24,7 @@ class RosettacodeSpider(scrapy.Spider):
 
         self.nr_langs_explored: int = 0
         self.info_lang: dict[str, LangInfo] = {lang: LangInfo(ext) for (lang, ext) in zip(lang_list, ext_list)}
-        self.res_dir: Path = Path(res_dir) / f'{RosettacodeSpider.name}-{int(time.time())}'
+        self.res_dir: Path = Path(res_dir) / f'{self.name}-{int(time.time())}'
 
         for lang in self.info_lang:
             (self.res_dir / f'{lang}').mkdir(parents=True, exist_ok=True)
