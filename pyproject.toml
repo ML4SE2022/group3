@@ -9,6 +9,7 @@ packages = [{include = "code_scraper"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 Scrapy = "^2.6.3"
+transformers = "^4.23.1"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^5.0.4"
