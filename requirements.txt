@@ -1,0 +1,4 @@
+Scrapy~=2.6
+transformers~=4.23
+-f https://download.pytorch.org/whl/torch_stable.html
+torch~=1.12
