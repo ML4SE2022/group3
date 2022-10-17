@@ -23,7 +23,7 @@ begin
         n := 3
     else
         n := StrToInt(paramStr(1));
-    
+
     s := 0;
     for x := 1 to n do
         for y := x + 1 to n do

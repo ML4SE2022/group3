@@ -24,7 +24,7 @@ program challenge89part1
     else
         n = 3
     end if
-    
+
     s = 0
     do x = 1, n
         do y = x + 1, n

@@ -1,5 +1,5 @@
 function gcd(a, b)
-    while b > 0 do 
+    while b > 0 do
         t = b
         b = a % b
         a = t

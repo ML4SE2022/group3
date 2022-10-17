@@ -20,8 +20,8 @@ while [ $x -le $n ]; do
     while [ $y -le $n ]; do
         y=`expr $y + 1`;
         gcd $x $y;
-        s=`expr $s + $gcd`;      
-    done 
+        s=`expr $s + $gcd`;
+    done
     x=$next;
 done
 

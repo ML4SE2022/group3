@@ -5,7 +5,7 @@
 (loop for x from 1 to n
     do (
         loop for y from (+ 1 x) to n
-            do (setq s (+ s (gcd x y)))        
+            do (setq s (+ s (gcd x y)))
     )
 )
 
