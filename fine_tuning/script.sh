@@ -28,5 +28,5 @@ python3 run.py \
 	--train_batch_size 1 \
 	--eval_batch_size 1 \
 	--learning_rate 0.00005 \
-	--train_steps 5 \
-	--eval_steps 5
+	--train_steps 1 \
+	--eval_steps 1
