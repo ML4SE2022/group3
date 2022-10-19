@@ -59,7 +59,7 @@ class Seq2Seq(nn.Module):
         encoder_output = outputs[0].permute([1, 0, 2]).contiguous()
         if target_ids is not None:
             attn_mask = -1e4 * (1 - self.bias[:target_ids.shape[1], :target_ids.shape[1]])
-            tgt_embeddings = self.encoder.embeddings(input_ids).permute([1, 0, 2]).contiguous() if hasattr(self.encoder, "embeddings") else self.encoder.get_encoder().embed_tokens(input_ids).permute([1, 0, 2]).contiguous()
+            tgt_embeddings = self.encoder.embeddings(target_ids).permute([1, 0, 2]).contiguous() if hasattr(self.encoder, "embeddings") else self.encoder.get_encoder().embed_tokens(target_ids).permute([1, 0, 2]).contiguous()
             out = self.decoder(tgt_embeddings, encoder_output, tgt_mask=attn_mask,
                                memory_key_padding_mask=(1 - source_mask).bool())
             hidden_states = torch.tanh(self.dense(out)).permute([1, 0, 2]).contiguous()
@@ -90,7 +90,7 @@ class Seq2Seq(nn.Module):
                     if beam.done():
                         break
                     attn_mask = -1e4 * (1 - self.bias[:input_ids.shape[1], :input_ids.shape[1]])
-                    tgt_embeddings = self.encoder.embeddings(input_ids).permute([1, 0, 2]).contiguous()
+                    tgt_embeddings = self.encoder.embeddings(input_ids).permute([1, 0, 2]).contiguous() if hasattr(self.encoder, "embeddings") else self.encoder.get_encoder().embed_tokens(input_ids).permute([1, 0, 2]).contiguous()
                     out = self.decoder(tgt_embeddings, context, tgt_mask=attn_mask,
                                        memory_key_padding_mask=(1 - context_mask).bool())
                     out = torch.tanh(self.dense(out))
