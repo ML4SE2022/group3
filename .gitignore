@@ -131,3 +131,5 @@ dmypy.json
 .idea
 
 **/__pycache__/**
+
+/fine_tuning/out
