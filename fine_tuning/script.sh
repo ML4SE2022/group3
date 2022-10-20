@@ -19,8 +19,8 @@ python3 run.py \
 	--model_name_or_path $pretrained_model \
 	--config_name $config_and_token_name \
 	--tokenizer_name $config_and_token_name \
-	--train_filename ./train.java-python.java,./train.java-python.python \
-	--dev_filename ./valid.java-python.java,./valid.java-python.python \
+	--train_filename ./test_data/test/test.java,./test_data/test/test.py \
+	--dev_filename ./test_data/val/val.java,./test_data/val/val.py \
 	--output_dir $output_dir \
 	--max_source_length 512 \
 	--max_target_length 512 \

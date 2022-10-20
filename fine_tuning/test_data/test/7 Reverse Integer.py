@@ -1,0 +1,1 @@
+class Solution : NEW_LINE INDENT def reverse ( self , x : int ) -> int : NEW_LINE INDENT ans = 0 NEW_LINE sign = - 1 if x < 0 else 1 NEW_LINE x *= sign NEW_LINE while x : NEW_LINE INDENT ans = ans * 10 + x % 10 NEW_LINE x //= 10 NEW_LINE DEDENT return 0 if ans < - 2 ** 31 or ans > 2 ** 31 - 1 else sign * ans NEW_LINE DEDENT DEDENT

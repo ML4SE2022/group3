@@ -1,0 +1,1 @@
+class Solution : NEW_LINE INDENT def twoSum ( self , nums : List [ int ] , target : int ) -> List [ int ] : NEW_LINE INDENT numToIndex = { } NEW_LINE for i , num in enumerate ( nums ) : NEW_LINE INDENT if target - num in numToIndex : NEW_LINE INDENT return numToIndex [ target - num ] , i NEW_LINE DEDENT numToIndex [ num ] = i NEW_LINE DEDENT DEDENT DEDENT
