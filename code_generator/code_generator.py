@@ -2,8 +2,8 @@ import argparse
 import json
 import os
 import random
-import time
 from pathlib import Path
+from time import sleep
 
 import openai
 
@@ -43,14 +43,14 @@ def retry_with_exponential_backoff(
                 # Check if max retries has been reached
                 if num_retries > max_retries:
                     raise Exception(
-                        f"Maximum number of retries ({max_retries}) exceeded."
+                        f'Maximum number of retries ({max_retries}) exceeded.'
                     )
 
                 # Increment the delay
                 delay *= exponential_base * (1 + jitter * random.random())
 
                 # Sleep for the delay
-                time.sleep(delay)
+                sleep(delay)
 
             # Raise exceptions for any errors not specified
             except Exception as e:
@@ -125,7 +125,7 @@ def main():
                     top_p=1,
                     frequency_penalty=0,
                     presence_penalty=0,
-                    stop=["###"]
+                    stop=['###']
                 )
                 stripped_text = response.choices[0].text.strip()
                 lines: list[str] = stripped_text.splitlines()
