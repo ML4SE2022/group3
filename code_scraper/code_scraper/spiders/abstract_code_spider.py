@@ -16,7 +16,7 @@ class AbstractCodeSpider(scrapy.Spider):
         self.res_dir = Path(res_dir) / f'{self.name}-{int(time.time())}'
 
         for lang in self.sel_langs:
-            (self.res_dir / f'{lang}').mkdir(parents=True, exist_ok=True)
+            (self.res_dir / lang).mkdir(parents=True, exist_ok=True)
 
     def save_file(self, name: str, lang: str, content: str) -> None:
         name_preproc = "".join(c if c not in '<>:"/\\|?*' else '_' for c in name)

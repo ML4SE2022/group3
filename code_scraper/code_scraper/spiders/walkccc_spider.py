@@ -17,7 +17,6 @@ class WalkcccSpider(AbstractCodeSpider):
     def parse_problem(self, response):
         problem: str = response.css('title::text').get()
         problem = problem.removesuffix(' - LeetCode Solutions').replace('.', '')
-        problem = "".join(char if char not in '<>:"/\\|?*' else '_' for char in problem)
         try:
             container_elem = response.css('.tabbed-set.tabbed-alternate')[0]
         except IndexError:
