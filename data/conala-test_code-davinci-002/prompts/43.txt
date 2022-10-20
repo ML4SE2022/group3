@@ -1,0 +1,1 @@
+Splitting a string with repeated characters into a list using regex

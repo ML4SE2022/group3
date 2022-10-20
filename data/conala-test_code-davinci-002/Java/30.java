@@ -1,0 +1,1 @@
+String[] lines = multiLineString.split("\\r?\\n");

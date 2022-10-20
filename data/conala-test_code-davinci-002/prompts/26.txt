@@ -1,0 +1,1 @@
+selenium how to get the content of href within some targeted class

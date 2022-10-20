@@ -1,0 +1,1 @@
+How to print an entire list while not starting by the first item

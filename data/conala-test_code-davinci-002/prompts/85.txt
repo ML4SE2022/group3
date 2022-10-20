@@ -1,0 +1,1 @@
+How I can get rid of None values in dictionary?

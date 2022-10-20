@@ -1,0 +1,1 @@
+Most efficient way to convert items of a list to int and sum them up

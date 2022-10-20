@@ -1,0 +1,1 @@
+How can I sum a column of a list?
