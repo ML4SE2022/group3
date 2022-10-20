@@ -133,3 +133,5 @@ dmypy.json
 **/__pycache__/**
 
 /fine_tuning/out
+
+/fine_tuning/AVATAR

@@ -4,4 +4,11 @@ transformers~=4.23
 torch~=1.12
 openai~=0.23
 scikit-learn
+sacrebleu==1.2.11
 sentencepiece
+numpy
+six
+submitit
+tree_sitter
+-e git://github.com/pytorch/fairseq.git@698e3b91ffa832c286c48035bdff78238b0de8ae
+javalang
