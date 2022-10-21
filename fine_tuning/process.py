@@ -32,9 +32,9 @@ for file in glob.glob("*.py"):
         f_java.truncate(0)  # clear file
 
     if len(functions_standalone_python) == 0:
-        with open(file_name + ".py", 'a', encoding='utf8') as f_python:
+        with open(file_name + "converted.py", 'a', encoding='utf8') as f_python:
             f_python.write(result_python)
-        with open(file_name + ".java", 'a', encoding='utf8') as f_java:
+        with open(file_name + "converted.java", 'a', encoding='utf8') as f_java:
             f_java.write(result_java)
     else:
         for python_fn in functions_standalone_python:
@@ -48,7 +48,7 @@ for file in glob.glob("*.py"):
             else:
                 continue
 
-            with open(file_name + ".py", 'a', encoding='utf8') as f_python:
+            with open(file_name + "converted.py", 'a', encoding='utf8') as f_python:
                 f_python.write(functions_standalone_python[python_fn])
-            with open(file_name + ".java", 'a', encoding='utf8') as f_java:
+            with open(file_name + "converted.java", 'a', encoding='utf8') as f_java:
                 f_java.write(functions_standalone_java[final])

@@ -1,1 +1,0 @@
-class Solution : NEW_LINE INDENT def isPalindrome ( self , x : int ) -> bool : NEW_LINE INDENT if x < 0 : NEW_LINE INDENT return False NEW_LINE DEDENT rev = 0 NEW_LINE y = x NEW_LINE while y : NEW_LINE INDENT rev = rev * 10 + y % 10 NEW_LINE y //= 10 NEW_LINE DEDENT return rev == x NEW_LINE DEDENT DEDENT

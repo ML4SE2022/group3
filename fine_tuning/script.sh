@@ -25,8 +25,8 @@ python3 run.py \
 	--max_source_length 512 \
 	--max_target_length 512 \
 	--beam_size 5 \
-	--train_batch_size 1 \
-	--eval_batch_size 1 \
+	--train_batch_size 5 \
+	--eval_batch_size 5 \
 	--learning_rate 0.00005 \
-	--train_steps 1 \
-	--eval_steps 1
+	--train_steps 2 \
+	--eval_steps 2
