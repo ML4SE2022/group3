@@ -18,7 +18,7 @@ python3 run.py \
 	--model_name_or_path $pretrained_model \
 	--config_name $config_and_token_name \
 	--tokenizer_name $config_and_token_name \
-	--train_filename ../train.java,../data/train.py \
+	--train_filename ../train.java,../train.py \
 	--output_dir $output_dir \
 	--max_source_length 512 \
 	--max_target_length 512 \
