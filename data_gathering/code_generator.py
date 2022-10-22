@@ -6,8 +6,8 @@ from pathlib import Path
 from time import sleep
 
 import openai
+from langs_util import LANG_EXTS
 
-LANG_EXTS = {'Java': 'java', 'Python': 'py'}
 MAX_TOKENS_PER_MIN = 150000
 CODE_DELIM = '```'
 DISALLOWED_DEFAULT = ['numpy', 'pandas', 'dataframe', *LANG_EXTS]
@@ -69,9 +69,9 @@ def main():
     parser.add_argument('-i', '--input', nargs='+',
                         default=['./conala-corpus-v1.1/conala-test.json'],
                         help='JSON input file locations')
-    parser.add_argument('-r', '--rewritten',
-                        action='store_true',
-                        help='use rewritten intent')
+    parser.add_argument('-k', '--key',
+                        default='intent',
+                        help='key containing prompt')
     parser.add_argument('-l', '--langs', nargs='+',
                         default=['Java', 'Python'],
                         help='languages to translate into')
@@ -89,34 +89,33 @@ def main():
                         help='output directory')
 
     args = parser.parse_args()
-    args.input = [Path(s) for s in args.input]
-    args.langs: list[str] = [lang for lang in args.langs if lang in LANG_EXTS]
-    args.output = Path(args.output)
+    langs: list[str] = [lang for lang in args.langs if lang in LANG_EXTS]
+    out_path = Path(args.output)
 
     openai.api_key = os.getenv('OPENAI_API_KEY')
-    intent_key = ('rewritten_' if args.rewritten else '') + 'intent'
 
-    args.disallowed: list[str] = [d.casefold() for d in args.disallowed]
+    disallowed_terms: list[str] = [d.casefold() for d in args.disallowed]
 
-    for input in args.input:
-        ds = json.loads(input.read_text(encoding='utf-8'))
-        prompts: list[str] = list(set(e[intent_key] for e in ds))
+    for inp in args.input:
+        in_path = Path(inp)
+        ds = json.loads(in_path.read_text(encoding='utf-8'))
+        prompts: list[str] = list(set(e[args.key] for e in ds))
         prompts = [
             prompt for prompt in prompts
-            if not any(x in prompt.casefold() for x in args.disallowed)
+            if not any(x in prompt.casefold() for x in disallowed_terms)
         ]
-        ds_path = args.output / f'{input.stem}_{args.model}'
+        ds_path = out_path / f'{in_path.stem}_{args.model}'
         prompts_path = ds_path / 'prompts'
         prompts_path.mkdir(parents=True, exist_ok=True)
 
-        for lang in args.langs:
+        for lang in langs:
             lang_path = ds_path / lang
             lang_path.mkdir(exist_ok=True)
 
         for i, prompt in enumerate(prompts):
             lang_to_res: dict[str, str] = {}
 
-            for lang in args.langs:
+            for lang in langs:
                 response = completion_with_backoff(
                     model=args.model,
                     prompt=f'### {prompt}\n### {lang}\n',
@@ -139,7 +138,7 @@ def main():
                 # lines.append('')
                 lang_to_res[lang] = "\n".join(lines)
 
-            if len(lang_to_res) != len(args.langs):
+            if len(lang_to_res) != len(langs):
                 continue
             prompt_path = prompts_path / f'{i}.txt'
             prompt_path.write_text(prompt, encoding='utf-8', newline='\n')

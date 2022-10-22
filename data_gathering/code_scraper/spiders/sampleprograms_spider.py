@@ -21,7 +21,7 @@ class SampleprogramsSpider(AbstractCodeSpider):
         impl_hrefs: list[str] = impls_sel.css('::attr(href)').getall()
         lang_to_href = {lang: href for lang, href in zip(impl_langs, impl_hrefs, strict=True)}
         hrefs = [v for (k, v) in lang_to_href.items() if k in self.sel_langs]
-        if (len(hrefs) == len(self.sel_langs)):
+        if len(hrefs) == len(self.sel_langs):
             yield from response.follow_all(hrefs, callback=self.parse_impl)
 
     def parse_impl(self, response):

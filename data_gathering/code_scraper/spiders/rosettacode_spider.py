@@ -26,7 +26,7 @@ class RosettacodeSpider(AbstractCodeSpider):
         else:
             self.nr_langs_explored += 1
             if self.nr_langs_explored == len(self.sel_langs):
-                final_tasks: set(str) = set.intersection(
+                final_tasks: set[str] = set.intersection(
                     *(task for task in self.lang_to_tasks.values()))
                 yield from response.follow_all(final_tasks, callback=self.parse_task)
 
