@@ -375,6 +375,12 @@ def main():
             train_loss = round(tr_loss * args.gradient_accumulation_steps / (nb_tr_steps + 1), 4)
             if (global_step + 1) % 100 == 0:
                 logger.info("  step {} loss {}".format(global_step + 1, train_loss))
+                output_dir = os.path.join(args.output_dir, 'checkpoint-best-ppl')
+                if not os.path.exists(output_dir):
+                    os.makedirs(output_dir)
+                # model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
+                output_model_file = os.path.join(output_dir, "pytorch_model.bin")
+                torch.save(model.state_dict(), output_model_file)
             nb_tr_examples += source_ids.size(0)
             nb_tr_steps += 1
             loss.backward()
