@@ -18,7 +18,7 @@ python3 run.py \
 	--model_name_or_path $pretrained_model \
 	--config_name $config_and_token_name \
 	--tokenizer_name $config_and_token_name \
-	--train_filename ../data/test.java,../data/test.py \
+	--train_filename ../train.java,../data/train.py \
 	--output_dir $output_dir \
 	--max_source_length 512 \
 	--max_target_length 512 \
@@ -34,7 +34,7 @@ python3 run.py \
 	--config_name $config_and_token_name \
 	--tokenizer_name $config_and_token_name  \
 	--load_model_path $output_dir/checkpoint-best-bleu/pytorch_model.bin \
-	--dev_filename ../../val.java,../../val.py \
+	--dev_filename ../test.java,../test.py \
 	--output_dir $output_dir \
 	--max_source_length 512 \
 	--max_target_length 512 \
