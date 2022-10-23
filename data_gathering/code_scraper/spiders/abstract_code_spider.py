@@ -14,7 +14,7 @@ class AbstractCodeSpider(scrapy.Spider, ABC):
         comma_regex = r'\s*,\s*'
         self.sel_langs: list[str] = [
             lang for lang in re.split(comma_regex, langs) if lang in LANG_EXTS]
-        self.res_dir = Path(res_dir) / f'{self.name}-{int(time.time())}'
+        self.res_dir = Path(res_dir) / f'{self.name}_{int(time.time())}'
 
         for lang in self.sel_langs:
             (self.res_dir / lang).mkdir(parents=True, exist_ok=True)

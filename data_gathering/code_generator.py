@@ -2,10 +2,11 @@ import argparse
 import json
 import os
 import random
+import time
 from pathlib import Path
-from time import sleep
 
 import openai
+
 from langs_util import LANG_EXTS
 
 MAX_TOKENS_PER_MIN = 150000
@@ -50,7 +51,7 @@ def retry_with_exponential_backoff(
                 delay *= exponential_base * (1 + jitter * random.random())
 
                 # Sleep for the delay
-                sleep(delay)
+                time.sleep(delay)
 
             # Raise exceptions for any errors not specified
             except Exception as e:
@@ -67,7 +68,10 @@ def completion_with_backoff(**kwargs):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', nargs='+',
-                        default=['./conala-corpus-v1.1/conala-test.json'],
+                        default=[
+                            './conala-corpus-v1.1/conala-train.json',
+                            './conala-corpus-v1.1/conala-test.json',
+                        ],
                         help='JSON input file locations')
     parser.add_argument('-k', '--key',
                         default='intent',
@@ -92,9 +96,13 @@ def main():
     langs: list[str] = [lang for lang in args.langs if lang in LANG_EXTS]
     out_path = Path(args.output)
 
-    openai.api_key = os.getenv('OPENAI_API_KEY')
+    openai_api_key = os.getenv('OPENAI_API_KEY')
+    if not openai_api_key:
+        raise RuntimeError('Environment variable "OPENAI_API_KEY" is not set.')
+    openai.api_key = openai_api_key
 
     disallowed_terms: list[str] = [d.casefold() for d in args.disallowed]
+    start_time = time.time()
 
     for inp in args.input:
         in_path = Path(inp)
@@ -104,7 +112,7 @@ def main():
             prompt for prompt in prompts
             if not any(x in prompt.casefold() for x in disallowed_terms)
         ]
-        ds_path = out_path / f'{in_path.stem}_{args.model}'
+        ds_path = out_path / f'{in_path.stem}_{args.model}_{int(start_time)}'
         prompts_path = ds_path / 'prompts'
         prompts_path.mkdir(parents=True, exist_ok=True)
 
@@ -128,13 +136,13 @@ def main():
                 )
                 stripped_text = response.choices[0].text.strip()
                 lines: list[str] = stripped_text.splitlines()
-                if len(lines) < 2:
-                    break
-                if CODE_DELIM in lines[0]:
+                if lines and CODE_DELIM in lines[0]:
                     del lines[0]
-                if CODE_DELIM in lines[-1]:
+                if lines and CODE_DELIM in lines[-1]:
                     del lines[-1]
                 lines = [line.removeprefix('>>> ').rstrip() for line in lines]
+                if len(lines) < 2:
+                    break
                 # lines.append('')
                 lang_to_res[lang] = "\n".join(lines)
 
