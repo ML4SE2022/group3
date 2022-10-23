@@ -11,7 +11,7 @@ else
   config_and_token_name="roberta-base"
 fi
 
-output_dir="./out/"
+output_dir="./out"
 python3 run.py \
 	--do_train \
 	--model_type $model_type \
@@ -33,7 +33,7 @@ python3 run.py \
 	--model_name_or_path $pretrained_model \
 	--config_name $config_and_token_name \
 	--tokenizer_name $config_and_token_name  \
-	--load_model_path $output_dir/checkpoint-best-bleu/pytorch_model.bin \
+	--load_model_path $output_dir/checkpoint-best-ppl/pytorch_model.bin \
 	--dev_filename ../test.java,../test.py \
 	--output_dir $output_dir \
 	--max_source_length 512 \
