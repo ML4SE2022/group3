@@ -1,5 +1,6 @@
-Scrapy~=2.6
-transformers~=4.23
--f https://download.pytorch.org/whl/torch_stable.html
-torch~=1.12
-openai~=0.23
+Scrapy~=2.6.3
+transformers~=4.23.1
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch~=1.12.1
+openai~=0.23.1
+tree_sitter~=0.20.1
