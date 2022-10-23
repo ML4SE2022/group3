@@ -11,7 +11,7 @@ from langs_util import LANG_EXTS
 
 MAX_TOKENS_PER_MIN = 150000
 CODE_DELIM = '```'
-DISALLOWED_DEFAULT = ['numpy', 'pandas', 'dataframe', *LANG_EXTS]
+DISALLOWED_DEFAULT = ['numpy', 'pandas', 'dataframe', 'flask', *LANG_EXTS]
 
 
 # https://github.com/openai/openai-cookbook/blob/main/examples/How_to_handle_rate_limits.ipynb
