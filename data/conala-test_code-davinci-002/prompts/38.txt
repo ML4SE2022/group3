@@ -1,1 +1,0 @@
-How do I INSERT INTO t1 (SELECT * FROM t2) in SQLAlchemy?

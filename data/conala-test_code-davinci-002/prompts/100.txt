@@ -1,1 +1,0 @@
-How to eliminate all strings from a list

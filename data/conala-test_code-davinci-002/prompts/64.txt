@@ -1,1 +1,0 @@
-check if a directory exists and create it if necessary

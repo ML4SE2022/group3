@@ -1,1 +1,0 @@
-List<String> list = Arrays.asList(tuple.toArray(new String[tuple.size()]));

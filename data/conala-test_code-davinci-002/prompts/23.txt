@@ -1,1 +1,0 @@
-converting list of string to list of integer

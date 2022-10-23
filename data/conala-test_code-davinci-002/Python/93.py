@@ -1,1 +1,0 @@
-sum(map(int, my_list))

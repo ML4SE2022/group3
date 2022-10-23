@@ -1,1 +1,0 @@
-How to get the index of an integer from a list if the list contains a boolean?

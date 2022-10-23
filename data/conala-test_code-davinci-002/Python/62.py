@@ -1,1 +1,0 @@
-sorted(list_of_dicts, key=lambda x: (x['x'], x['y']))

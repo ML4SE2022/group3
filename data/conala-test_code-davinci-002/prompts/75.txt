@@ -1,1 +1,0 @@
-How to get max value in django ORM

@@ -1,1 +1,0 @@
-take the content of a list and append it to another list

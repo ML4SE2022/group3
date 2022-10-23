@@ -1,1 +1,0 @@
-Deleting a div with a particlular class using BeautifulSoup

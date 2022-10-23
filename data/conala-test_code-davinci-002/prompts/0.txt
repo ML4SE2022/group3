@@ -1,1 +1,0 @@
-Getting the length of an array

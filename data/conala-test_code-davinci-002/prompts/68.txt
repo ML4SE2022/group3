@@ -1,1 +1,0 @@
-Mapping a string into a list of pairs

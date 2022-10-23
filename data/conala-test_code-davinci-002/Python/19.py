@@ -1,1 +1,0 @@
-sum(lst, key=lambda x: x[1])

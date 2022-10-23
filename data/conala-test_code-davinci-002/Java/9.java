@@ -1,1 +1,0 @@
-String name = doc.getElementsByTag("name").text();

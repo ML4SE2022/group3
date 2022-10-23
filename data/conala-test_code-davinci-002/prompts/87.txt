@@ -1,1 +1,0 @@
-regex to get all text outside of brackets

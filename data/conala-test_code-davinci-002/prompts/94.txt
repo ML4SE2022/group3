@@ -1,1 +1,0 @@
-How can I subtract or add 100 years to a datetime field in the database in Django?

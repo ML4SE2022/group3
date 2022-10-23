@@ -1,1 +1,0 @@
-How to sum elements in functional way
