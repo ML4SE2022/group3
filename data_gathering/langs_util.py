@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from tree_sitter import Language, Parser
 
 LANG_EXTS = {'Java': 'java', 'Python': 'py', 'C++': 'cpp'}
@@ -6,11 +8,12 @@ LANG_EXTS = {'Java': 'java', 'Python': 'py', 'C++': 'cpp'}
 class CodeChecker:
 
     def __init__(self):
-        lib = 'resources/tree-sitter_build/langs.so'
+        resources_path = Path(__file__).parent / 'resources'
+        lib = (resources_path / 'tree-sitter_build' / 'langs.so').as_posix()
         Language.build_library(
             lib,
             [
-                f'resources/tree-sitter-{self.__norm_lang_name(lang)}'
+                (resources_path / f'tree-sitter-{self.__norm_lang_name(lang)}').as_posix()
                 for lang in LANG_EXTS
             ]
         )

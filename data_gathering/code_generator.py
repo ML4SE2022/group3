@@ -9,9 +9,10 @@ import openai
 
 from langs_util import LANG_EXTS
 
-MAX_TOKENS_PER_MIN = 150000
-CODE_DELIM = '```'
-DISALLOWED_DEFAULT = ['numpy', 'pandas', 'dataframe', 'flask', *LANG_EXTS]
+__CODE_DELIM = '```'
+__SCRIPT_PARENT = Path(__file__).parent
+__INP_DEFAULT = __SCRIPT_PARENT / 'resources' / 'conala-corpus-v1.1'
+__DISALLOWED_DEFAULT = ['numpy', 'pandas', 'dataframe', 'flask', *LANG_EXTS]
 
 
 # https://github.com/openai/openai-cookbook/blob/main/examples/How_to_handle_rate_limits.ipynb
@@ -69,8 +70,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--input', nargs='+',
                         default=[
-                            './conala-corpus-v1.1/conala-train.json',
-                            './conala-corpus-v1.1/conala-test.json',
+                            str(__INP_DEFAULT / 'conala-train.json'),
+                            str(__INP_DEFAULT / 'conala-test.json'),
                         ],
                         help='JSON input file locations')
     parser.add_argument('-k', '--key',
@@ -80,7 +81,7 @@ def main():
                         default=['Java', 'Python'],
                         help='languages to translate into')
     parser.add_argument('-d', '--disallowed', nargs='+',
-                        default=DISALLOWED_DEFAULT,
+                        default=__DISALLOWED_DEFAULT,
                         help='disallowed prompt terms')
     parser.add_argument('-t', '--tokens',
                         default=500,
@@ -89,7 +90,7 @@ def main():
                         default='code-davinci-002',
                         help='OpenAI model to use')
     parser.add_argument('-o', '--output',
-                        default='../data',
+                        default=str(__SCRIPT_PARENT.parent / 'data'),
                         help='output directory')
 
     args = parser.parse_args()
@@ -136,9 +137,9 @@ def main():
                 )
                 stripped_text = response.choices[0].text.strip()
                 lines: list[str] = stripped_text.splitlines()
-                if lines and CODE_DELIM in lines[0]:
+                if lines and __CODE_DELIM in lines[0]:
                     del lines[0]
-                if lines and CODE_DELIM in lines[-1]:
+                if lines and __CODE_DELIM in lines[-1]:
                     del lines[-1]
                 lines = [line.removeprefix('>>> ').rstrip() for line in lines]
                 if len(lines) < 2:
