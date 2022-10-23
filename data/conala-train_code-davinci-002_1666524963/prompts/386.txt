@@ -1,0 +1,1 @@
+How to use regular expression to separate numbers and characters in strings like "30M1000N20M"

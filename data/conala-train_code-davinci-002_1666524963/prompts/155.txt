@@ -1,0 +1,1 @@
+How can I check if a string contains ANY letters from the alphabet?

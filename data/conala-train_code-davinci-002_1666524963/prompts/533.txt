@@ -1,0 +1,1 @@
+Is there a way to refer to the entire matched expression in re.sub without the use of a group?

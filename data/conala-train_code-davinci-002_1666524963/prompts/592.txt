@@ -1,0 +1,1 @@
+fastest way to find the magnitude (length) squared of a vector field

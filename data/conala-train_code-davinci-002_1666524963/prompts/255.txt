@@ -1,0 +1,1 @@
+In dictionary, converting the value from string to integer

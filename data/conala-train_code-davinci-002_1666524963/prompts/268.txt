@@ -1,0 +1,1 @@
+Find array item in a string

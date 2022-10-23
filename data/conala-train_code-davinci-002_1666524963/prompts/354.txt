@@ -1,0 +1,1 @@
+Is there a cleaner way to iterate through all binary 4-tuples?

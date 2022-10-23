@@ -1,0 +1,1 @@
+what is a quick way to delete all elements from a list that do not satisfy a constraint?

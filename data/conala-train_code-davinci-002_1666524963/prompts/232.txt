@@ -1,0 +1,1 @@
+How do I convert all strings (like "Fault") and into a unique float?

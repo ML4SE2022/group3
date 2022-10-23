@@ -1,0 +1,1 @@
+How can I remove the fragment identifier from a URL?

@@ -1,0 +1,1 @@
+True for all characters of a string

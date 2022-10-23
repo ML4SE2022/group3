@@ -1,0 +1,1 @@
+How to retrieve only arabic texts from a string using regular expression?

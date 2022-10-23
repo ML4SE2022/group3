@@ -1,0 +1,1 @@
+Get the number of rows in table using SQLAlchemy

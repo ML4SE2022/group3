@@ -1,0 +1,1 @@
+How do I tell matplotlib that I am done with a plot?

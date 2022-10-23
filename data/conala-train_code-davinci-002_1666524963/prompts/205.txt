@@ -1,0 +1,1 @@
+Regex for getting all digits in a string after a character

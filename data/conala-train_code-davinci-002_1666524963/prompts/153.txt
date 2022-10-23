@@ -1,0 +1,1 @@
+List of Tuples (string, float)with NaN How to get the min value?

@@ -1,0 +1,1 @@
+Finding recurring patterns in a string

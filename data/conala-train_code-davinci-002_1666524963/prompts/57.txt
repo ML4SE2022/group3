@@ -1,0 +1,1 @@
+What's the easiest way to convert a list of hex byte strings to a list of hex integers?

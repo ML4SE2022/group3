@@ -1,0 +1,1 @@
+How to delete a file without an extension?

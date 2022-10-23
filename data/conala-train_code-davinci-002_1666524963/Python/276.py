@@ -1,0 +1,42 @@
+from bs4 import BeautifulSoup
+
+html = """
+<div id="foo">
+    <div id="bar">
+        <div id="baz">
+            <div id="qux">
+                <div id="quux">
+                    <div id="corge">
+                        <div id="grault">
+                            <div id="garply">
+                                <div id="waldo">
+                                    <div id="fred">
+                                        <div id="plugh">
+                                            <div id="xyzzy">
+                                                <div id="thud">
+                                                    <div id="foo">
+                                                        <div id="bar">
+                                                            <div id="baz">
+                                                                <div id="qux">
+                                                                    <div id="quux">
+                                                                        <div id="corge">
+                                                                            <div id="grault">
+                                                                                <div id="garply">
+                                                                                    <div id="waldo">
+                                                                                        <div id="fred">
+                                                                                            <div id="plugh">
+                                                                                                <div id="xyzzy">
+                                                                                                    <div id="thud">
+                                                                                                        <div id="foo">
+                                                                                                            <div id="bar">
+                                                                                                                <div id="baz">
+                                                                                                                    <div id="qux">
+                                                                                                                        <div id="quux">
+                                                                                                                            <div id="corge">
+                                                                                                                                <div id="grault">
+                                                                                                                                    <div id="garply">
+                                                                                                                                        <div id="waldo">
+                                                                                                                                            <div id="fred">
+                                                                                                                                                <div id="plugh">
+                                                                                                                                                    <div id="xyzzy">
+                                                                                                                                                        <div id

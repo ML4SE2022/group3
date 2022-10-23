@@ -1,0 +1,1 @@
+How to set font size of Matplotlib axis Legend?

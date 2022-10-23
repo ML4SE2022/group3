@@ -1,0 +1,1 @@
+How to add a colorbar for a hist2d plot

@@ -1,0 +1,1 @@
+remove a substring from the end of a string

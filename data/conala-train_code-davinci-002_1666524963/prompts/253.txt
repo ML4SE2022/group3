@@ -1,0 +1,1 @@
+How to remove multiple indexes from a list at the same time?

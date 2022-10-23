@@ -1,0 +1,1 @@
+How do I merge a list of dicts into a single dict?

@@ -1,0 +1,1 @@
+Cleanest way to get a value from a list element

@@ -1,0 +1,1 @@
+Possible to get user input without inserting a new line?

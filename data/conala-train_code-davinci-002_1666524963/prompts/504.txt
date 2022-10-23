@@ -1,0 +1,1 @@
+Most elegant way to check if the string is empty

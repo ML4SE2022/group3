@@ -1,0 +1,1 @@
+How to get only div with id ending with a certain value in Beautiful Soup?

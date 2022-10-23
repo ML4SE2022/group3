@@ -1,0 +1,1 @@
+printing tab-separated values of a list

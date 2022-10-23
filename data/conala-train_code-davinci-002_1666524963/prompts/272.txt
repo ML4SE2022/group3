@@ -1,0 +1,1 @@
+Remove empty strings from a list of strings

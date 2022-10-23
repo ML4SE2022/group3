@@ -1,0 +1,1 @@
+Removing an element from a list based on a predicate

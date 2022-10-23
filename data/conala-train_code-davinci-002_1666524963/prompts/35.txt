@@ -1,0 +1,1 @@
+Is there a way to make the Tkinter text widget read only?

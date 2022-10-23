@@ -1,0 +1,1 @@
+Regular expression matching all but a string

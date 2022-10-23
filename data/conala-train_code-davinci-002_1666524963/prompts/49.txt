@@ -1,0 +1,1 @@
+Create a hierarchy from a dictionary of lists

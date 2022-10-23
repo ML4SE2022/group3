@@ -1,0 +1,1 @@
+How to check if all elements in a tuple or list are in another?

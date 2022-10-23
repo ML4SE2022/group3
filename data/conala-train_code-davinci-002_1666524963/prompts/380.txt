@@ -1,0 +1,1 @@
+Deleting row with Flask-SQLAlchemy

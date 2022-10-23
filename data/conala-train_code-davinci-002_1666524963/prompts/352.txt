@@ -1,0 +1,1 @@
+Convert generator object to a dictionary

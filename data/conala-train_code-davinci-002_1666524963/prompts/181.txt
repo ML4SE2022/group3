@@ -1,0 +1,1 @@
+String encoding and decoding from possibly latin1 and utf8

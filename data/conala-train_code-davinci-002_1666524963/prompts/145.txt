@@ -1,0 +1,1 @@
+Subtracting the current and previous item in a list

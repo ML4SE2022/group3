@@ -1,0 +1,1 @@
+Elegant way to create a dictionary of pairs, from a list of tuples?

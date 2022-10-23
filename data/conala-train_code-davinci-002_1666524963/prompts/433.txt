@@ -1,0 +1,1 @@
+Remove final characters from string recursively - What's the best way to do this?

@@ -1,0 +1,1 @@
+How do I coalesce a sequence of identical characters into just one?

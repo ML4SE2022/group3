@@ -1,0 +1,1 @@
+How to convert a list of multiple integers into a single integer?

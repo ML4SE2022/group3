@@ -1,0 +1,1 @@
+Get models ordered by an attribute that belongs to its OneToOne model
