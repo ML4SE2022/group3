@@ -25,7 +25,7 @@ python3 run.py \
 	--beam_size 5 \
 	--train_batch_size 4 \
 	--learning_rate 0.00005 \
-	--train_steps 1000 \
+	--train_steps 50000 \
 
 python3 run.py \
   --do_test \
