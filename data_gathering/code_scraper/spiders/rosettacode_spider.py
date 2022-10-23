@@ -4,10 +4,11 @@ from code_scraper.spiders.abstract_code_spider import AbstractCodeSpider
 class RosettacodeSpider(AbstractCodeSpider):
     name = "rosettacode"
 
-    def __init__(self, langs: str = 'Java,Python', *args, **kwargs):
+    def __init__(self, langs: str = 'Java,Python', rm_drafts: str = 'y', *args, **kwargs):
         super(RosettacodeSpider, self).__init__(langs, *args, **kwargs)
 
         self.nr_langs_explored = 0
+        self.rm_drafts = rm_drafts == 'y'
         self.lang_to_tasks: dict[str, set[str]] = {lang: set() for lang in self.sel_langs}
 
         self.download_delay = 0.25
@@ -31,6 +32,9 @@ class RosettacodeSpider(AbstractCodeSpider):
                 yield from response.follow_all(final_tasks, callback=self.parse_task)
 
     def parse_task(self, response):
+        draft: str = response.xpath('//a[contains(.//text(), "Draft Programming Task")]').get()
+        if self.rm_drafts and draft:
+            return
         task: str = response.css('h1::text').get()
         task = "".join(char if char not in '<>:"/\\|?*' else '_' for char in task)
         for lang in self.sel_langs:
