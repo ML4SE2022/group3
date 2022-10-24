@@ -3,8 +3,8 @@ from AVATAR.codegen.preprocessing.lang_processors.java_processor import JavaProc
 import glob, os
 from pathlib import Path
 
-pyprocessor = PythonProcessor(root_folder="./out/third_party")
-jprocessor = JavaProcessor(root_folder="./out/third_party")
+pyprocessor = PythonProcessor(root_folder="./AVATAR/third_party")
+jprocessor = JavaProcessor(root_folder="./AVATAR/third_party")
 
 output_file = "../synthetic"
 from_directory = "../synthetic"
