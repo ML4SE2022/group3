@@ -20,7 +20,7 @@ class AbstractCodeSpider(scrapy.Spider, ABC):
             (self.res_dir / lang).mkdir(parents=True, exist_ok=True)
 
     def save_file(self, name: str, lang: str, content: str) -> None:
-        name_preproc = "".join(c if c not in '<>:"/\\|?*' else '_' for c in name)
+        name_preproc = "".join(c if c not in '<>:"/\\|?*–' else '_' for c in name)
         content_preproc = content.rstrip()
         file_path = self.res_dir / lang / f'{name_preproc}.{LANG_EXTS[lang]}'
         file_path.write_text(content_preproc, encoding='utf-8', newline='\n')
