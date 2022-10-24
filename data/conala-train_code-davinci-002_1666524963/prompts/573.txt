@@ -1,0 +1,1 @@
+Django urlsafe base64 decoding with decryption

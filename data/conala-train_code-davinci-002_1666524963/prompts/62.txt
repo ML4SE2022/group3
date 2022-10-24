@@ -1,0 +1,1 @@
+Sum the second value of each tuple in a list

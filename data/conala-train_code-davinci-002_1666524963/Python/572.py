@@ -1,0 +1,32 @@
+I have a list of datetime objects that I want to sort by month and day, but I want to ignore the year.
+
+For example, I have a list of datetime objects:
+
+<code>
+[datetime.datetime(2012, 1, 1, 0, 0),
+ datetime.datetime(2012, 1, 2, 0, 0),
+ datetime.datetime(2012, 1, 3, 0, 0),
+ datetime.datetime(2012, 1, 4, 0, 0),
+ datetime.datetime(2012, 1, 5, 0, 0),
+ datetime.datetime(2012, 1, 6, 0, 0),
+ datetime.datetime(2012, 1, 7, 0, 0),
+ datetime.datetime(2012, 1, 8, 0, 0),
+ datetime.datetime(2012, 1, 9, 0, 0),
+ datetime.datetime(2012, 1, 10, 0, 0),
+ datetime.datetime(2012, 1, 11, 0, 0),
+ datetime.datetime(2012, 1, 12, 0, 0),
+ datetime.datetime(2012, 1, 13, 0, 0),
+ datetime.datetime(2012, 1, 14, 0, 0),
+ datetime.datetime(2012, 1, 15, 0, 0),
+ datetime.datetime(2012, 1, 16, 0, 0),
+ datetime.datetime(2012, 1, 17, 0, 0),
+ datetime.datetime(2012, 1, 18, 0, 0),
+ datetime.datetime(2012, 1, 19, 0, 0),
+ datetime.datetime(2012, 1, 20, 0, 0),
+ datetime.datetime(2012, 1, 21, 0, 0),
+ datetime.datetime(2012, 1, 22, 0, 0),
+ datetime.datetime(2012, 1, 23, 0, 0),
+ datetime.datetime(2012, 1, 24, 0, 0),
+ datetime.datetime(2012, 1, 25, 0, 0),
+ datetime.datetime(2012, 1, 26, 0, 0),
+ datetime.datetime(2012,

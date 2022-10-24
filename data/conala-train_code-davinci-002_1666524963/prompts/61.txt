@@ -1,0 +1,1 @@
+How can I resize the root window in Tkinter?

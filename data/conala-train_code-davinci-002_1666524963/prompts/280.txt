@@ -1,0 +1,1 @@
+How do I check if all elements in a list are the same?

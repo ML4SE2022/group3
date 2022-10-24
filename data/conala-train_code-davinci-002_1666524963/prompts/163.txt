@@ -1,0 +1,1 @@
+Finding index of the same elements in a list

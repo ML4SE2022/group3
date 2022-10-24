@@ -1,0 +1,1 @@
+writing string to a file on a new line everytime?

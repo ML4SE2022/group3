@@ -1,0 +1,1 @@
+Get data from the meta tags using BeautifulSoup

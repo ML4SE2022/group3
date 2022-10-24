@@ -1,0 +1,1 @@
+Detecting non-ascii characters in unicode string

@@ -1,0 +1,1 @@
+Remove specific characters from a string

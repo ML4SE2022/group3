@@ -1,0 +1,1 @@
+What is the easiest way to convert list with str into list with int?

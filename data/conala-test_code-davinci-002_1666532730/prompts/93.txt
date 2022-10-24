@@ -1,0 +1,1 @@
+Calculate mean across dimension in a 2D array

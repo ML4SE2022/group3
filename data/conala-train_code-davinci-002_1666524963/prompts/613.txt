@@ -1,0 +1,1 @@
+How do I extract all the values of a specific key from a list of dictionaries?

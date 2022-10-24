@@ -1,0 +1,1 @@
+Remove string between 2 characters from text string

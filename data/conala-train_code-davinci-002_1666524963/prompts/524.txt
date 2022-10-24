@@ -1,0 +1,1 @@
+Is there a way to get a list of column names in sqlite?

@@ -1,0 +1,1 @@
+Find and click an item from 'onclick' partial value

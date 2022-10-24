@@ -1,0 +1,1 @@
+How do you extract a column from a multi-dimensional array?

@@ -1,0 +1,1 @@
+Remove all special characters, punctuation and spaces from string

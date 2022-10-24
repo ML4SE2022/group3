@@ -1,0 +1,1 @@
+How do I convert a hex triplet to an RGB tuple and back?

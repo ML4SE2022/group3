@@ -1,0 +1,1 @@
+How to count the Nan values in the column in Panda Data frame

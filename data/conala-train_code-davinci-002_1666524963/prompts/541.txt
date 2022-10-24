@@ -1,0 +1,1 @@
+How do I use a MD5 hash (or other binary data) as a key name?

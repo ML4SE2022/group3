@@ -28,7 +28,7 @@ share/python-wheels/
 MANIFEST
 
 # PyInstaller
-#  Usually these files are written by a python train_and_test.sh from a template
+#  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
@@ -128,9 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-.idea
 
-**/__pycache__/**
+data_gathering/resources/tree-sitter_build/
 
 /fine_tuning/out
 

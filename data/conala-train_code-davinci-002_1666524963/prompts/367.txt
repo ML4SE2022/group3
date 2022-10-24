@@ -1,0 +1,1 @@
+sorting a list with objects of a class as its items

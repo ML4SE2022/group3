@@ -1,0 +1,1 @@
+How do I extract table data in pairs using BeautifulSoup?

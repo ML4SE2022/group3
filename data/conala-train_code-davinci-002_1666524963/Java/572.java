@@ -1,0 +1,34 @@
+public static void main(String[] args) {
+    List<Date> dates = new ArrayList<>();
+    dates.add(new Date(2015, 1, 1));
+    dates.add(new Date(2015, 1, 2));
+    dates.add(new Date(2015, 1, 3));
+    dates.add(new Date(2015, 1, 4));
+    dates.add(new Date(2015, 1, 5));
+    dates.add(new Date(2015, 1, 6));
+    dates.add(new Date(2015, 1, 7));
+    dates.add(new Date(2015, 1, 8));
+    dates.add(new Date(2015, 1, 9));
+    dates.add(new Date(2015, 1, 10));
+    dates.add(new Date(2015, 1, 11));
+    dates.add(new Date(2015, 1, 12));
+    dates.add(new Date(2015, 1, 13));
+    dates.add(new Date(2015, 1, 14));
+    dates.add(new Date(2015, 1, 15));
+    dates.add(new Date(2015, 1, 16));
+    dates.add(new Date(2015, 1, 17));
+    dates.add(new Date(2015, 1, 18));
+    dates.add(new Date(2015, 1, 19));
+    dates.add(new Date(2015, 1, 20));
+    dates.add(new Date(2015, 1, 21));
+    dates.add(new Date(2015, 1, 22));
+    dates.add(new Date(2015, 1, 23));
+    dates.add(new Date(2015, 1, 24));
+    dates.add(new Date(2015, 1, 25));
+    dates.add(new Date(2015, 1, 26));
+    dates.add(new Date(2015, 1, 27));
+    dates.add(new Date(2015, 1, 28));
+    dates.add(new Date(2015, 1, 29));
+    dates.add(new Date(2015, 1, 30));
+    dates.add(new Date(2015, 1, 31));
+    dates.add
