@@ -1,0 +1,1 @@
+Regex: How to match words without consecutive vowels?

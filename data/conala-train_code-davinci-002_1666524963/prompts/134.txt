@@ -1,0 +1,1 @@
+Accented characters in Matplotlib

@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "ml4se2022_group3"
+version = "0.1.0"
+description = ""
+authors = ["AbeleMM <AbeleMM@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "code_scraper"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Scrapy = "^2.6.3"
+transformers = "^4.23.1"
+torch = "^1.12.1"
+openai = "^0.23.1"
+tree-sitter = "^0.20.1"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^5.0.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

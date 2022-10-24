@@ -1,0 +1,1 @@
+How to call Base Class's __init__ method from the child class?

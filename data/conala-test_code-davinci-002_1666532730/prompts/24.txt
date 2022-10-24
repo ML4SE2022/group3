@@ -1,0 +1,1 @@
+Print a list in reverse order with range()?

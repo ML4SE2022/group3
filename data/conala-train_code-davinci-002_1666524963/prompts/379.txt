@@ -1,0 +1,1 @@
+How to do many-to-many Django query to find book with 2 given authors?

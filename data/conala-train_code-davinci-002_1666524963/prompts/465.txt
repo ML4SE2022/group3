@@ -1,0 +1,1 @@
+Delete a dictionary item if the key exists

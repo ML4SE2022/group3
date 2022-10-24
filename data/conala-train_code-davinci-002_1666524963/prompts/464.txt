@@ -1,0 +1,1 @@
+Removing white space around a saved image in matplotlib

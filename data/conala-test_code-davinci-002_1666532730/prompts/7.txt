@@ -1,0 +1,1 @@
+how to get the last part of a string before a certain character?

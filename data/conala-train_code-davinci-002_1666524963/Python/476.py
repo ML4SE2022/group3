@@ -1,0 +1,2 @@
+float(string)
+int(string)

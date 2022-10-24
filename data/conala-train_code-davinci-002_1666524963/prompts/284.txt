@@ -1,0 +1,1 @@
+Create new list by taking first item from first list, and last item from second list

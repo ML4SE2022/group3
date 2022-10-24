@@ -1,0 +1,1 @@
+How can I convert Unicode to uppercase to print it?

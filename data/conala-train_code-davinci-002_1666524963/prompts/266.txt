@@ -1,0 +1,1 @@
+Passing list of parameters to SQL in psycopg2

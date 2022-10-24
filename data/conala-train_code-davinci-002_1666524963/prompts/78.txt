@@ -1,0 +1,1 @@
+Elegant way to convert list to hex string

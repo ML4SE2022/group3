@@ -1,0 +1,1 @@
+Find current directory and file's directory

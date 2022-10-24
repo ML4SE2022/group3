@@ -1,0 +1,1 @@
+remove None value from a list without removing the 0 value

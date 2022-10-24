@@ -1,0 +1,1 @@
+Moving x-axis to the top of a plot in matplotlib

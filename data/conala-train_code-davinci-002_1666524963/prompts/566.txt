@@ -1,0 +1,1 @@
+Slicing a list in Django template

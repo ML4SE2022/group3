@@ -1,0 +1,1 @@
+Prepend the same string to all items in a list

@@ -1,0 +1,1 @@
+Generating an MD5 checksum of a file

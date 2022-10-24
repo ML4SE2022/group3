@@ -1,0 +1,1 @@
+Convert a Unicode string to a string

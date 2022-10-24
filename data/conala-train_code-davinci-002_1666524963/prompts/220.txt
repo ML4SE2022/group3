@@ -1,0 +1,1 @@
+how to turn a string of letters embedded in squared brackets into embedded lists

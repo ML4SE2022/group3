@@ -1,0 +1,1 @@
+Elegant way to transform a list of dict into a dict of dicts

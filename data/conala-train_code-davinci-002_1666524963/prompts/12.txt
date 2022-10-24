@@ -1,0 +1,1 @@
+get all combination of n binary value

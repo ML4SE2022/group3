@@ -1,0 +1,1 @@
+Searching if the values on a list is in the dictionary whose format is key-string, value-list(strings)

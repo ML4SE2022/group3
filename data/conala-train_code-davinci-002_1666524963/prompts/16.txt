@@ -1,0 +1,1 @@
+getting every possible combination in a list

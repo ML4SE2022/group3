@@ -1,0 +1,1 @@
+Get the indexes of truthy elements of a boolean list as a list/tuple

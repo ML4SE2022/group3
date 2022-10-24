@@ -1,0 +1,1 @@
+How to get the resolution of a monitor in Pygame?

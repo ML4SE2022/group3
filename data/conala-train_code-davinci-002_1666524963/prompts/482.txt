@@ -1,0 +1,1 @@
+Print a variable selected by a random number

@@ -1,0 +1,1 @@
+replacing all regex matches in single line

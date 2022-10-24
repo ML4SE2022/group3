@@ -1,0 +1,1 @@
+How to change QPushButton text and background color
