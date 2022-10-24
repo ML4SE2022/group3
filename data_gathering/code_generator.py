@@ -1,8 +1,8 @@
-import argparse
 import json
 import os
 import random
 import time
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from pathlib import Path
 
 import openai
@@ -67,31 +67,31 @@ def completion_with_backoff(**kwargs):
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
     parser.add_argument('-i', '--input', nargs='+',
                         default=[
                             str(__INP_DEFAULT / 'conala-train.json'),
                             str(__INP_DEFAULT / 'conala-test.json'),
                         ],
-                        help='JSON input file locations')
+                        help='File location(s) for the JSON input, which is expected to be an array on objects.')
     parser.add_argument('-k', '--key',
                         default='intent',
-                        help='key containing prompt')
+                        help='Key for the JSON objects forming the input whose value contains the prompt.')
     parser.add_argument('-l', '--langs', nargs='+',
                         default=['Java', 'Python'],
-                        help='languages to translate into')
+                        help=f'Languages for which to generate code for starting from the prompt; supported: {", ".join(LANG_EXTS.keys())}.')
     parser.add_argument('-d', '--disallowed', nargs='+',
                         default=__DISALLOWED_DEFAULT,
-                        help='disallowed prompt terms')
+                        help='Terms for which promps containing them will be discarded.')
     parser.add_argument('-t', '--tokens',
                         default=500,
-                        help='max tokens per output')
+                        help='Number of maximum tokens to be output by generating model; a higher number may incurr higher cost.')
     parser.add_argument('-m', '--model',
                         default='code-davinci-002',
-                        help='OpenAI model to use')
+                        help='OpenAI model to be used; ensure the used API key has access to it.')
     parser.add_argument('-o', '--output',
                         default=str(__SCRIPT_PARENT.parent / 'data'),
-                        help='output directory')
+                        help='Output directory.')
 
     args = parser.parse_args()
     langs: list[str] = [lang for lang in args.langs if lang in LANG_EXTS]
