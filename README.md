@@ -31,14 +31,14 @@ All scrapers can be configured with the following options:
 
 Additionally, the `rosettacode` parser has the `rm_drafts` option, which, if set to value `y` (as by default), will not save [draft tasks](https://rosettacode.org/wiki/Category:Draft_Programming_Tasks). Any other value will retain drafts.
 
-Under the aforementioned `data` directory, is a corresponding output for each of the scrapers (`rosettacode` was ran with drafts retained, default values were used for all other parameters). Data under `codingbat` and `andrewshitov` was collected manually.
+Under the aforementioned `data` directory, is a corresponding output for each of the scrapers (`rosettacode` was run with drafts retained, default values were used for all other parameters). Data under `codingbat` and `andrewshitov` was collected manually.
 
 
 ### Data Generation
 
-Synthetic data can be generated with the help of the `code_generator.py` script in the `data_gathering` directory. As it uses the [OpenAI API](https://openai.com/api/), the `OPENAI_API_KEY` environment variable must exist and be valid for succesful execution.
+Synthetic data can be generated with the help of the `code_generator.py` script in the `data_gathering` directory. As it uses the [OpenAI API](https://openai.com/api/), the `OPENAI_API_KEY` environment variable must exist and be valid for successful execution.
 
-**Please keep in mind that usage of the OpenAI API generally incurrs a cost that will be billed to the account/organization tied to the supplied key**.
+**Please keep in mind that usage of the OpenAI API generally incurs a cost that will be billed to the account/organization tied to the supplied key**.
 
 Running `python code_generator.py -h` gives an overview of all available configuration options alongside their default values.
 
