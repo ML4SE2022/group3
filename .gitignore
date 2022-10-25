@@ -132,5 +132,3 @@ dmypy.json
 data_gathering/resources/tree-sitter_build/
 
 /fine_tuning/out
-
-/fine_tuning/AVATAR

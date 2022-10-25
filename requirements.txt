@@ -4,3 +4,7 @@ transformers~=4.23.1
 torch~=1.12.1
 openai~=0.23.1
 tree_sitter~=0.20.1
+javalang~=0.13.0
+sacrebleu~=1.2.11
+sentencepiece~=0.1.97
+tqdm~=4.64.1
