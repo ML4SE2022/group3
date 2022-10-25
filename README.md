@@ -72,9 +72,29 @@ python3 ./fine_tuning/process.py
 
 A script for running the evaluation is provided which can be run using:
 ```bash
-./fine_tuning/train_and_test.java roberta # or plbart
+./fine_tuning/train_and_test.sh roberta # or plbart
 ```
 This will run the training with the settings provided in the script file (default of 50000 training steps and a batch size of 4). To change from Java-Python translation to Python-Java translation, switch the order of the files given to `--train_filename` and `dev_filename`.
+
+# Model Artefacts
+
+All models and outputs of evaluation can be found [here](https://drive.google.com/file/d/1hMEBrahXkBQ6mhLK4YXjwM0MIvajrXVb/view?usp=sharing). There are two folder corresponding to Java to Python Translation (JavaPython) and Python to Java Translation (PytonJava). Each of the zips within this folder contains the output folder of the training and testing run by `./fine_tuning/train_and_test.sh`. The `test_0.output` file contains the translations of the provided test set. In the `checkpoint-best-ppl` folder within each zip is contained the final fine-tuned model. To evaluate these models, use the following command (from `./fine_tuning/train_and_test.sh`):
+```bash
+python3 run.py \
+  --do_test \
+	--model_type $model_type \
+	--model_name_or_path $pretrained_model \
+	--config_name $config_and_token_name \
+	--tokenizer_name $config_and_token_name  \
+	--load_model_path $output_dir/checkpoint-best-ppl/pytorch_model.bin \
+	--dev_filename ../train_test_data/test.java,../train_test_data/test.py \
+	--output_dir $output_dir \
+	--max_source_length 512 \
+	--max_target_length 512 \
+	--beam_size 5 \
+	--eval_batch_size 16
+```
+Where `--load_model_path` should correspond to the bin file of the model that you would like to run.
 
 
 # Results
