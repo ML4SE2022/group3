@@ -72,18 +72,17 @@ A script for running the evaluation is provided which can be run using:
 cd ./fine_tuning
 python3 train_and_test.py
 ```
-This will run the training with the parameters provided in the script file (defaults to CodeBERT model, non-augmented dataset, Java to Python, 50000 training steps, batch size 4). The command also runs testing after training completes. For information on changing any of the parameter values, refer to the output of `python3 train_and_test.py -h`.
+This will run the training with the parameters provided in the script file (defaults to CodeBERT model, non-augmented dataset, Java to Python, 50000 training steps and batch size 4). The default command additionally runs testing after training completes. For information on changing any of the parameter values, refer to the output of `python3 train_and_test.py -h`.
 
 # Model Artefacts
 
 All models and outputs of evaluation can be found [here](https://drive.google.com/file/d/1hMEBrahXkBQ6mhLK4YXjwM0MIvajrXVb/view?usp=sharing). There are two folder corresponding to Java to Python Translation (JavaPython) and Python to Java Translation (PythonJava).
-Each of the zips within this folder contains the output folder of the training and testing run by `./fine_tuning/train_and_test.sh`.
+Each of the zips within this folder contains the output folder of the training and testing run by `./fine_tuning/train_and_test.py`.
 The `test_0.output` file contains the translations of the provided test set. In the `checkpoint-best-ppl` folder within each zip is contained the final fine-tuned model. To evaluate these models, use the following commands:
 ```bash
 cd ./fine_tuning
 python3 train_and_test.py -l "./out/checkpoint-best-ppl/pytorch_model.bin"
 ```
-Where `--load_model_path` should correspond to the bin file of the model that you would like to run.
 
 
 # Results
