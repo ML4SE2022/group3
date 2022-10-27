@@ -1,6 +1,6 @@
 # Group 3: The evaluation of Java-Python code translation using scraped and generated datasets
 
-This repository provides a way to fine-tune 2 models ([CodeBERT](https://github.com/microsoft/CodeBERT) and [PLBART](https://github.com/wasiahmad/PLBART)) on a scraped and generated dataset and evaluate these fine-tuned models on two metrics, namely Bleu-4 and xMatch. 
+This repository provides a way to fine-tune 2 models ([CodeBERT](https://github.com/microsoft/CodeBERT) and [PLBART](https://github.com/wasiahmad/PLBART)) on a scraped and generated dataset and evaluate these fine-tuned models on two metrics, namely Bleu-4 and xMatch.
 The evaluation and fine-tuning of the models has been n/adapted from [CodeXGLUE](https://github.com/microsoft/CodeXGLUE) and the preprocessing of the data is done by [AVATAR](https://github.com/wasiahmad/AVATAR).
 
 
@@ -14,7 +14,7 @@ The datasets used for experimentation can be found in the folder `train_test_dat
 
 # Installation
 
-After cloning a `pip install -r requirements.txt` is required to install the appropriate packages for running the fine-tuning and evaluation.
+After cloning a `pip install -r requirements.txt` is required to install the appropriate packages for running the fine-tuning and evaluation (preferably within a [venv](https://docs.python.org/3/library/venv.html)).
 
 
 ### Code Scraping
@@ -57,17 +57,12 @@ The class `CodeChecker` under `data_gathering/langs_util.py` is currently unused
 ### Pre-processing
 
 The pre-processing is done by first setting `output_file` (indicating the location and name of the output file) and setting `from_directory` (indicating the directory containing the java-python files).
-**Note that the python and java files should be in the same directory and have the same name (with the `.java` and `.py` extension respectively)**
+**Note that the python and java files should be in the same directory and have the same name (with the `.java` and `.py` extension respectively).**
 
-The pre-processing can then be done by running the following commands (requires conda):
+The pre-processing can then be done by running the following commands:
 ```shell
 cd ./fine_tuning
-git clone https://github.com/wasiahmad/AVATAR.git
-cd ./AVATAR
-install_env.sh
-pip install -r requirements.txt
-cd ../../
-python3 ./fine_tuning/process.py
+python3 process.py
 ```
 
 ### Fine-tuning
@@ -80,8 +75,8 @@ This will run the training with the settings provided in the script file (defaul
 
 # Model Artefacts
 
-All models and outputs of evaluation can be found [here](https://drive.google.com/file/d/1hMEBrahXkBQ6mhLK4YXjwM0MIvajrXVb/view?usp=sharing). There are two folder corresponding to Java to Python Translation (JavaPython) and Python to Java Translation (PythonJava). 
-Each of the zips within this folder contains the output folder of the training and testing run by `./fine_tuning/train_and_test.sh`. 
+All models and outputs of evaluation can be found [here](https://drive.google.com/file/d/1hMEBrahXkBQ6mhLK4YXjwM0MIvajrXVb/view?usp=sharing). There are two folder corresponding to Java to Python Translation (JavaPython) and Python to Java Translation (PythonJava).
+Each of the zips within this folder contains the output folder of the training and testing run by `./fine_tuning/train_and_test.sh`.
 The `test_0.output` file contains the translations of the provided test set. In the `checkpoint-best-ppl` folder within each zip is contained the final fine-tuned model. To evaluate these models, use the following command (from `./fine_tuning/train_and_test.sh`):
 ```bash
 python3 run.py \

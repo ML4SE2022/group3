@@ -1,10 +1,11 @@
-from AVATAR.codegen.preprocessing.lang_processors.python_processor import PythonProcessor
-from AVATAR.codegen.preprocessing.lang_processors.java_processor import JavaProcessor
-import glob, os
+from preprocessing.lang_processors.python_processor import PythonProcessor
+from preprocessing.lang_processors.java_processor import JavaProcessor
 from pathlib import Path
 
-pyprocessor = PythonProcessor(root_folder="./AVATAR/third_party")
-jprocessor = JavaProcessor(root_folder="./AVATAR/third_party")
+ROOT_FOLDER = "../data_gathering/resources"
+
+pyprocessor = PythonProcessor(root_folder=ROOT_FOLDER)
+jprocessor = JavaProcessor(root_folder=ROOT_FOLDER)
 
 output_file = "../synthetic"
 from_directory = "../synthetic"
@@ -38,7 +39,7 @@ for file in Path(from_directory).rglob('*.py'):
             (result_python, functions_standalone_python, functions_class_python) = process_code(pyprocessor, f_python,)
         with open(file.parent.as_posix() + "/" + file_name + ".java", 'r+', encoding='utf8') as f_java:
             (result_java, functions_standalone_java, functions_class_java) = process_code(jprocessor, f_java)
-    except Exception as e:
+    except Exception:
         print(file_name)
         continue
 
