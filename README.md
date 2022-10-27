@@ -14,6 +14,16 @@ The datasets used for experimentation can be found in the folder `train_test_dat
 
 # Installation
 
+Aside from the standard local setup, which supports replicating all steps, a Docker setup for fine-tuning and testing on the final datasets is provided.
+
+## Docker Setup
+
+To pull and run the latest image without building it youself use: `docker run --gpus all ghcr.io/ml4se2022/group3:latest`.
+
+This starts training and testing right away. GPU acceleration should be enabled as long as the proper hardware and drivers are installed on the host machine. Arguments can be added to the end of the command to customize behaviour (e.g., `-h` shows help text).
+
+## Local Setup
+
 After cloning a `pip install -r requirements.txt` is required to install the appropriate packages for running the fine-tuning and evaluation (preferably within a [venv](https://docs.python.org/3/library/venv.html)).
 
 
