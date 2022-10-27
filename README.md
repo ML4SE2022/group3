@@ -75,7 +75,7 @@ This will run the training with the parameters provided in the script file (defa
 
 # Model Artefacts
 
-All models and outputs of evaluation can be found [here](https://drive.google.com/file/d/1hMEBrahXkBQ6mhLK4YXjwM0MIvajrXVb/view?usp=sharing). There are two folder corresponding to Java to Python Translation (JavaPython) and Python to Java Translation (PythonJava).
+All models and outputs of evaluation can be found [here](https://drive.google.com/file/d/1hMEBrahXkBQ6mhLK4YXjwM0MIvajrXVb/view?usp=sharing). There are two folders corresponding with Java to Python Translation (JavaPython) and Python to Java Translation (PythonJava).
 Each of the zips within this folder contains the output folder of the training and testing run by `./fine_tuning/train_and_test.py`.
 The `test_0.output` file contains the translations of the provided test set. In the `checkpoint-best-ppl` folder within each zip is contained the final fine-tuned model. To evaluate these models, use the following commands:
 ```bash
