@@ -56,8 +56,7 @@ The class `CodeChecker` under `data_gathering/langs_util.py` is currently unused
 
 ### Pre-processing
 
-The pre-processing is done by first setting `output_file` (indicating the location and name of the output file) and setting `from_directory` (indicating the directory containing the java-python files).
-**Note that the python and java files should be in the same directory and have the same name (with the `.java` and `.py` extension respectively).**
+The pre-processing is done by first setting `output_file` (indicating the location and name of the output file) and setting `from_directory` (indicating the directory containing the java-python files) in `./fine_tuning/process.py`.
 
 The pre-processing can then be done by running the following commands:
 ```shell

@@ -7,8 +7,8 @@ ROOT_FOLDER = "../data_gathering/resources"
 pyprocessor = PythonProcessor(root_folder=ROOT_FOLDER)
 jprocessor = JavaProcessor(root_folder=ROOT_FOLDER)
 
-output_file = "../synthetic"
-from_directory = "../synthetic"
+output_file = "../data"
+from_directory = "../data"
 
 
 def process_code(processor, f):
@@ -29,15 +29,20 @@ def process_code(processor, f):
     return result, dict(functions_standalone), dict(functions_class)
 
 
-for file in Path(from_directory).rglob('*.py'):
-    file_name = file.name[:file.name.index(".py")]
+for python_file in Path(from_directory).rglob('*.py'):
+    file_name = python_file.name[:python_file.name.index(".py")]
+    try:
+        java_file = next(Path(from_directory).rglob(file_name + ".java"))
+    except StopIteration:
+        raise Exception("Corresponding java file to " + file_name + " not found")
+
     (result_python, functions_standalone_python, functions_class_python) = (None, None, None)
     (result_java, functions_standalone_java, functions_class_java) = (None, None, None)
 
     try:
-        with open(file.parent.as_posix() + "/" + file_name + ".py", 'r+', encoding='utf8') as f_python:
+        with open(python_file.parent.as_posix() + "/" + file_name + ".py", 'r+', encoding='utf8') as f_python:
             (result_python, functions_standalone_python, functions_class_python) = process_code(pyprocessor, f_python,)
-        with open(file.parent.as_posix() + "/" + file_name + ".java", 'r+', encoding='utf8') as f_java:
+        with open(java_file, 'r+', encoding='utf8') as f_java:
             (result_java, functions_standalone_java, functions_class_java) = process_code(jprocessor, f_java)
     except Exception:
         print(file_name)
