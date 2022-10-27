@@ -192,7 +192,7 @@ def set_seed(args):
         torch.cuda.manual_seed_all(args.seed)
 
 
-def main():
+def main(args_: list[str] | None = None):
     parser = argparse.ArgumentParser()
 
     ## Required parameters
@@ -266,7 +266,7 @@ def main():
     parser.add_argument('--seed', type=int, default=42,
                         help="random seed for initialization")
     # print arguments
-    args = parser.parse_args()
+    args = parser.parse_args(args=args_)
     logger.info(args)
 
     # Setup CUDA, GPU & distributed training

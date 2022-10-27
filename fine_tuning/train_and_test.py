@@ -1,5 +1,6 @@
-import subprocess
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
+
+import run
 
 __M_CODEBERT = 'codebert'
 __M_PLBART = 'plbart'
@@ -54,22 +55,11 @@ def main():
         print('Wrong value for direction.')
         return
 
-    python_cmd = ''
-    for cmd in ('python3', 'python'):
-        complete_proc = subprocess.run([cmd, '--version'], capture_output=True, text=True, shell=True)
-        if '3.' in complete_proc.stdout:
-            python_cmd = cmd
-            break
-    if not python_cmd:
-        print('No python 3 accessible.')
-        return
-
     file_prefix = 'augmented_' if args.augmented else ''
     output_dir = './out'
 
     if not args.load_path:
-        subprocess.run([
-            python_cmd, 'run.py',
+        run.main([
             '--do_train',
             '--model_type', model_type,
             '--model_name_or_path', pretrained_model,
@@ -83,13 +73,12 @@ def main():
             '--train_batch_size', str(args.batch_size_train),
             '--learning_rate', '0.00005',
             '--train_steps', str(args.step_count_train)
-        ], shell=True)
+        ])
 
         args.load_path = f'{output_dir}/checkpoint-best-ppl/pytorch_model.bin'
         print()
 
-    subprocess.run([
-        python_cmd, 'run.py',
+    run.main(args_=[
         '--do_test',
         '--model_type', model_type,
         '--model_name_or_path', pretrained_model,
@@ -102,7 +91,7 @@ def main():
         '--max_target_length', '512',
         '--beam_size', '5',
         '--eval_batch_size', '16'
-    ], shell=True)
+    ])
 
 
 if __name__ == "__main__":
