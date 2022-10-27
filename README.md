@@ -51,7 +51,7 @@ As before, the `data` directory holds an output instance of running the generato
 
 In the case of both the scrapers and the generator, the currently supported languages are: `C++`, `Java`, `Python`. Adding support for a new language requires updating the `LANG_EXTS` dictionary from `data_gathering/langs_util.py`, which specifies the file extension for each recognized language.
 
-The class `CodeChecker` under `data_gathering/langs_util.py` is currently unused within the scraper or generator, but it can be used to checked whether the program stored in a string is syntactically valid through the `is_invalid` instance method. It supports the same languages as the other two tools. In this instance, adding support for more languages would also require adding an appropriate [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) language [parsers](https://tree-sitter.github.io/tree-sitter/#available-parsers).
+The class `CodeChecker` under `data_gathering/langs_util.py` is currently unused within the scraper or generator, but it can be used to check whether the program stored in a string is syntactically valid through the `is_invalid` instance method. It supports the same languages as the other two tools. In this instance, adding support for more languages would also require adding an appropriate [Tree-sitter](https://tree-sitter.github.io/tree-sitter/) language [parser](https://tree-sitter.github.io/tree-sitter/#available-parsers).
 
 
 ### Pre-processing

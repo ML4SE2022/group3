@@ -54,6 +54,7 @@ def main():
         print('Wrong value for direction.')
         return
 
+    python_cmd = ''
     for cmd in ('python3', 'python'):
         complete_proc = subprocess.run([cmd, '--version'], capture_output=True, text=True, shell=True)
         if '3.' in complete_proc.stdout:
