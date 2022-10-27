@@ -69,9 +69,10 @@ def completion_with_backoff(**kwargs):
 def main():
     parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter)
     parser.add_argument('-i', '--input', nargs='+',
+                        type=Path,
                         default=[
-                            str(__INP_DEFAULT / 'conala-train.json'),
-                            str(__INP_DEFAULT / 'conala-test.json'),
+                            __INP_DEFAULT / 'conala-train.json',
+                            __INP_DEFAULT / 'conala-test.json',
                         ],
                         help='File location(s) for the JSON input, which is expected to be an array on objects.')
     parser.add_argument('-k', '--key',
@@ -91,12 +92,12 @@ def main():
                         default='code-davinci-002',
                         help='OpenAI model to be used; ensure the used API key has access to it.')
     parser.add_argument('-o', '--output',
-                        default=str(__SCRIPT_PARENT.parent / 'data'),
+                        type=Path,
+                        default=__SCRIPT_PARENT.parent / 'data',
                         help='Output directory.')
 
     args = parser.parse_args()
     langs: list[str] = [lang for lang in args.langs if lang in LANG_EXTS]
-    out_path = Path(args.output)
 
     openai_api_key = os.getenv('OPENAI_API_KEY')
     if not openai_api_key:
@@ -106,15 +107,14 @@ def main():
     disallowed_terms: list[str] = [d.casefold() for d in args.disallowed]
     start_time = time.time()
 
-    for inp in args.input:
-        in_path = Path(inp)
+    for in_path in args.input:
         ds = json.loads(in_path.read_text(encoding='utf-8'))
         prompts: list[str] = list(set(e[args.key] for e in ds))
         prompts = [
             prompt for prompt in prompts
             if not any(x in prompt.casefold() for x in disallowed_terms)
         ]
-        ds_path = out_path / f'{in_path.stem}_{args.model}_{int(start_time)}'
+        ds_path = args.output / f'{in_path.stem}_{args.model}_{int(start_time)}'
         prompts_path = ds_path / 'prompts'
         prompts_path.mkdir(parents=True, exist_ok=True)
 

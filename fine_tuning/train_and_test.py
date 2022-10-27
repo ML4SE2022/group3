@@ -20,9 +20,8 @@ def main():
     parser.add_argument('-a', '--augmented',
                         action='store_true',
                         help='Use the dataset augmented with synthetically generated examples.')
-    parser.add_argument('-t', '--test_only',
-                        action='store_true',
-                        help='Skip training and only run testing.')
+    parser.add_argument('-l', '--load_path',
+                        help='Specifies a model path to be used for testing, and skips training.')
     parser.add_argument('-b', '--batch_size_train',
                         type=int,
                         default='4',
@@ -67,7 +66,7 @@ def main():
     file_prefix = 'augmented_' if args.augmented else ''
     output_dir = './out'
 
-    if not args.test_only:
+    if not args.load_path:
         subprocess.run([
             python_cmd, 'run.py',
             '--do_train',
@@ -80,11 +79,12 @@ def main():
             '--max_source_length', '512',
             '--max_target_length', '512',
             '--beam_size', '5',
-            '--train_batch_size', args.batch_size_train,
+            '--train_batch_size', str(args.batch_size_train),
             '--learning_rate', '0.00005',
-            '--train_steps', args.step_count_train
+            '--train_steps', str(args.step_count_train)
         ], shell=True)
 
+        args.load_path = f'{output_dir}/checkpoint-best-ppl/pytorch_model.bin'
         print()
 
     subprocess.run([
@@ -94,7 +94,7 @@ def main():
         '--model_name_or_path', pretrained_model,
         '--config_name', config_and_token_name,
         '--tokenizer_name', config_and_token_name,
-        '--load_model_path', f'{output_dir}/checkpoint-best-ppl/pytorch_model.bin',
+        '--load_model_path', args.load_path,
         '--dev_filename', f'../train_test_data/test.{ext_a},../train_test_data/test.{ext_b}',
         '--output_dir', output_dir,
         '--max_source_length', '512',
