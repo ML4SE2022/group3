@@ -83,7 +83,7 @@ def read_examples(filename):
     src_filename = filename.split(',')[0]
     trg_filename = filename.split(',')[1]
     idx = 0
-    with open(src_filename) as f1, open(trg_filename) as f2:
+    with open(src_filename, encoding='utf-8') as f1, open(trg_filename, encoding='utf-8') as f2:
         for line1, line2 in zip(f1, f2):
             examples.append(
                 Example(
@@ -489,8 +489,8 @@ def main():
                 model.train()
                 predictions = []
                 accs = []
-                with open(os.path.join(args.output_dir, "dev.output"), 'w') as f, open(
-                        os.path.join(args.output_dir, "dev.gold"), 'w') as f1:
+                with open(os.path.join(args.output_dir, "dev.output"), 'w', encoding='utf-8') as f, open(
+                        os.path.join(args.output_dir, "dev.gold"), 'w', encoding='utf-8') as f1:
                     for ref, gold in zip(p, eval_examples):
                         predictions.append(str(gold.idx) + '\t' + ref)
                         f.write(ref + '\n')
@@ -549,8 +549,8 @@ def main():
             model.train()
             predictions = []
             accs = []
-            with open(os.path.join(args.output_dir, "test_{}.output".format(str(idx))), 'w') as f, open(
-                    os.path.join(args.output_dir, "test_{}.gold".format(str(idx))), 'w') as f1:
+            with open(os.path.join(args.output_dir, "test_{}.output".format(str(idx))), 'w', encoding='utf-8') as f, open(
+                    os.path.join(args.output_dir, "test_{}.gold".format(str(idx))), 'w', encoding='utf-8') as f1:
                 for ref, gold in zip(p, eval_examples):
                     predictions.append(str(gold.idx) + '\t' + ref)
                     f.write(ref + '\n')
@@ -565,4 +565,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
