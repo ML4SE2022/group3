@@ -192,7 +192,7 @@ def set_seed(args):
         torch.cuda.manual_seed_all(args.seed)
 
 
-def main(args_: list[str] | None = None):
+def main(args_ = None):
     parser = argparse.ArgumentParser()
 
     ## Required parameters

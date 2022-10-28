@@ -16,7 +16,8 @@ The datasets used for experimentation can be found in the folder `train_test_dat
 
 Aside from the standard local setup, which supports replicating all steps, a Docker setup for fine-tuning and testing on the final datasets is provided.
 
-To ensure that the environment is set up correctly and models can generate predictions, `python train_and_test.py -b 1 -s 100 -e` can be executed from the `fine_tuning` directory in the case of local setup. Alternatively, `docker run --gpus all ghcr.io/ml4se2022/group3:latest -b 1 -s 100 -e` can be used for Docker. Note that completing such a short run might still require some minutes. The output of the predictions should be available in `test_0.output`.
+To ensure that the environment is set up correctly and models can generate predictions, `python3 train_and_test.py -b 1 -s 100 -e` can be executed from the `fine_tuning` directory in the case of local setup. Alternatively, `docker run --gpus all ghcr.io/ml4se2022/group3:latest -b 1 -s 100 -e` can be used for Docker. In both instances the `-e` flag replaces the complete datasets with a much smaller one (containing only 2 examples). Note that completing such a short run might still require some minutes. The output of the predictions should be available in `test_0.output`.
+
 
 ## Docker Setup
 
@@ -24,9 +25,10 @@ To pull and run the latest image without building it yourself use: `docker run -
 
 This starts training and testing right away. GPU acceleration should be enabled as long as the proper hardware and drivers are installed on the host machine. Arguments can be added to the end of the command to customize behaviour (e.g., `-h` shows help text).
 
+
 ## Local Setup
 
-After cloning a `pip install -r requirements.txt` is required to install the appropriate packages for running the fine-tuning and evaluation (preferably within a [venv](https://docs.python.org/3/library/venv.html)).
+Python >=3.9 is recommended. After cloning, a `pip install -r requirements.txt` is required to install the appropriate packages for running the fine-tuning and evaluation (preferably within a [venv](https://docs.python.org/3/library/venv.html)).
 
 
 ### Code Scraping
@@ -54,7 +56,7 @@ Synthetic data can be generated with the help of the `code_generator.py` script 
 
 **Please keep in mind that usage of the OpenAI API generally incurs a cost that will be billed to the account/organization tied to the supplied key**.
 
-Running `python code_generator.py -h` gives an overview of all available configuration options alongside their default values.
+Running `python3 code_generator.py -h` gives an overview of all available configuration options alongside their default values.
 
 As before, the `data` directory holds an output instance of running the generator on the manually curated data from [CoNaLa](https://conala-corpus.github.io/) (both train and test). Prompts were taken from the `intent_field` (another option would be `rewritten_intent`). The input data is also present under `resources/conala-corpus-v1.1`.
 
