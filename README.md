@@ -1,5 +1,4 @@
-# Group 3: Evaluating Java-Python code translation using scraped and
-generated datasets
+# Group 3: Evaluating Java-Python code translation using scraped and generated datasets
 
 This repository provides a way to fine-tune 2 models ([CodeBERT](https://github.com/microsoft/CodeBERT) and [PLBART](https://github.com/wasiahmad/PLBART)) on a scraped and generated dataset and evaluate these fine-tuned models on two metrics, namely Bleu-4 and xMatch.
 The evaluation and fine-tuning of the models has been adapted from [CodeXGLUE](https://github.com/microsoft/CodeXGLUE) and the preprocessing of the data is done by [AVATAR](https://github.com/wasiahmad/AVATAR).
