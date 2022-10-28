@@ -26,11 +26,14 @@ def main():
     parser.add_argument('-b', '--batch_size_train',
                         type=int,
                         default='4',
-                        help='Batch size to be used during training.')
+                        help='Batch size to be used during training (reduce value if facing out of memory errors).')
     parser.add_argument('-s', '--step_count_train',
                         type=int,
                         default='50000',
                         help='Number of steps for which to train.')
+    parser.add_argument('-e', '--example',
+                        action='store_true',
+                        help='Replace train/test data with a small example suitable for a dry run.')
     args = parser.parse_args()
 
     if args.model == __M_CODEBERT:
@@ -55,6 +58,12 @@ def main():
         print('Wrong value for direction.')
         return
 
+    if args.example:
+        train_n = test_n = 'example'
+    else:
+        train_n = 'train'
+        test_n = 'test'
+
     file_prefix = 'augmented_' if args.augmented else ''
     output_dir = './out'
 
@@ -65,7 +74,7 @@ def main():
             '--model_name_or_path', pretrained_model,
             '--config_name', config_and_token_name,
             '--tokenizer_name', config_and_token_name,
-            '--train_filename', f'../train_test_data/{file_prefix}train.{ext_a},../train_test_data/{file_prefix}train.{ext_b}',
+            '--train_filename', f'../train_test_data/{file_prefix}{train_n}.{ext_a},../train_test_data/{file_prefix}{train_n}.{ext_b}',
             '--output_dir', output_dir,
             '--max_source_length', '512',
             '--max_target_length', '512',
@@ -85,7 +94,7 @@ def main():
         '--config_name', config_and_token_name,
         '--tokenizer_name', config_and_token_name,
         '--load_model_path', args.load_path,
-        '--dev_filename', f'../train_test_data/test.{ext_a},../train_test_data/test.{ext_b}',
+        '--dev_filename', f'../train_test_data/{test_n}.{ext_a},../train_test_data/{test_n}.{ext_b}',
         '--output_dir', output_dir,
         '--max_source_length', '512',
         '--max_target_length', '512',
