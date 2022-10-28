@@ -86,7 +86,7 @@ def main():
                         help='Terms for which promps containing them will be discarded.')
     parser.add_argument('-t', '--tokens',
                         type=int,
-                        default=500,
+                        default=512,
                         help='Number of maximum tokens to be output by generating model; a higher number may incurr higher cost.')
     parser.add_argument('-m', '--model',
                         default='code-davinci-002',
